@@ -1,0 +1,47 @@
+[gd_scene load_steps=3 format=2]
+
+[ext_resource path="res://themes/GamePausedFont.tres" type="DynamicFont" id=3]
+[ext_resource path="res://objects/PauseMenuButtons.tscn" type="PackedScene" id=4]
+
+[node name="PauseMenu" type="Control"]
+margin_right = 40.0
+margin_bottom = 40.0
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="CanvasLayer" type="CanvasLayer" parent="."]
+
+[node name="ColorRect" type="ColorRect" parent="CanvasLayer"]
+anchor_right = 1.0
+anchor_bottom = 1.0
+color = Color( 0, 0, 0, 1 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="PauseTitle" type="Label" parent="CanvasLayer/ColorRect"]
+margin_right = 641.0
+margin_bottom = 107.0
+custom_fonts/font = ExtResource( 3 )
+text = "Game Paused"
+align = 1
+valign = 2
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="ResumeButton" parent="CanvasLayer/ColorRect" instance=ExtResource( 4 )]
+margin_left = 232.0
+margin_top = 176.0
+margin_right = 392.0
+margin_bottom = 216.0
+text = "Resume"
+
+[node name="MainMenuButton" parent="CanvasLayer/ColorRect" instance=ExtResource( 4 )]
+margin_left = 232.0
+margin_top = 232.0
+margin_right = 392.0
+margin_bottom = 272.0
+text = "Main Menu"
+reference_path = "res://scenes/MainMenu.tscn"

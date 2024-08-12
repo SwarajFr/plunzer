@@ -1,0 +1,103 @@
+[gd_scene load_steps=11 format=2]
+
+[ext_resource path="res://assets/MainMenuBG1.png" type="Texture" id=1]
+[ext_resource path="res://objects/MainMenuButton.tscn" type="PackedScene" id=2]
+[ext_resource path="res://assets/windows_command_prompt.ttf" type="DynamicFontData" id=3]
+[ext_resource path="res://scripts/HighScore.gd" type="Script" id=4]
+[ext_resource path="res://assets/MainMenuBG2.png" type="Texture" id=6]
+[ext_resource path="res://scripts/MainMenu.gd" type="Script" id=7]
+
+[sub_resource type="SpriteFrames" id=3]
+animations = [ {
+"frames": [ ExtResource( 1 ), ExtResource( 6 ) ],
+"loop": true,
+"name": "change",
+"speed": 12.0
+} ]
+
+[sub_resource type="DynamicFont" id=1]
+size = 75
+outline_size = 4
+outline_color = Color( 0, 0, 0, 1 )
+font_data = ExtResource( 3 )
+
+[sub_resource type="DynamicFont" id=6]
+size = 25
+outline_size = 2
+outline_color = Color( 0, 1, 0.156863, 1 )
+font_data = ExtResource( 3 )
+
+[sub_resource type="DynamicFont" id=4]
+size = 50
+font_data = ExtResource( 3 )
+
+[node name="MainMenu" type="Node2D"]
+pause_mode = 2
+scale = Vector2( 1.00322, 1.00462 )
+script = ExtResource( 7 )
+
+[node name="MainMenuBG" type="AnimatedSprite" parent="."]
+scale = Vector2( 4, 4 )
+frames = SubResource( 3 )
+animation = "change"
+speed_scale = 0.75
+playing = true
+centered = false
+
+[node name="MenuTitle" type="Label" parent="."]
+margin_left = 207.332
+margin_top = 63.7057
+margin_right = 453.332
+margin_bottom = 200.706
+custom_colors/font_color = Color( 1, 1, 1, 1 )
+custom_fonts/font = SubResource( 1 )
+text = "Plunzer
+"
+__meta__ = {
+"_edit_lock_": true,
+"_edit_use_anchors_": false
+}
+
+[node name="Info2" type="Label" parent="."]
+margin_left = 271.127
+margin_top = 127.411
+margin_right = 594.127
+margin_bottom = 264.411
+custom_colors/font_color = Color( 0, 0, 0, 1 )
+custom_fonts/font = SubResource( 6 )
+text = "Don't die quick, its easy LMAOO"
+__meta__ = {
+"_edit_lock_": true,
+"_edit_use_anchors_": false
+}
+
+[node name="MenuNewGame" parent="." instance=ExtResource( 2 )]
+margin_left = 247.204
+margin_top = 199.08
+margin_right = 406.204
+margin_bottom = 239.08
+focus_neighbour_bottom = NodePath("../MenuOptions")
+text = "New Game"
+reference_path = "res://scenes/World.tscn"
+
+[node name="MenuOptions" parent="." instance=ExtResource( 2 )]
+margin_left = 247.204
+margin_top = 254.823
+margin_right = 406.204
+margin_bottom = 294.822
+focus_neighbour_top = NodePath("../MenuNewGame")
+text = "Controls"
+reference_path = "res://UI/Options.tscn"
+
+[node name="HighScoreLabel" type="Label" parent="."]
+margin_left = 555.212
+margin_top = 314.547
+margin_right = 694.212
+margin_bottom = 359.547
+custom_colors/font_color = Color( 0, 1, 0.14902, 1 )
+custom_fonts/font = SubResource( 4 )
+text = "100"
+script = ExtResource( 4 )
+__meta__ = {
+"_edit_use_anchors_": false
+}

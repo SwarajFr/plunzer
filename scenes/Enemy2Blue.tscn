@@ -1,0 +1,17 @@
+[gd_scene load_steps=4 format=2]
+
+[ext_resource path="res://assets/enemyblue.png" type="Texture" id=1]
+[ext_resource path="res://scenes/Enemy.tscn" type="PackedScene" id=2]
+[ext_resource path="res://scripts/Enemy2Blue.gd" type="Script" id=3]
+
+[node name="EnemySImple" instance=ExtResource( 2 )]
+texture = ExtResource( 1 )
+script = ExtResource( 3 )
+speed = 100
+knockback = 25
+hp = 10
+screenshake = 175
+points_increment = 20
+
+[node name="CollisionShape2D" parent="EnemyHitbox" index="0"]
+position = Vector2( 0.8, -7.62939e-07 )
